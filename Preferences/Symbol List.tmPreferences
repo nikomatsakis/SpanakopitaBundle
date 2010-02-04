@@ -10,6 +10,14 @@
 	<dict>
 		<key>showInSymbolList</key>
 		<integer>1</integer>
+		<key>symbolTransformation</key>
+		<string>
+		s/^__________*/      /g;
+		s/^_______*/   /g;
+		s/^____*//g;
+		s/^_*//g;
+		s/_*$//g;
+	</string>
 	</dict>
 	<key>uuid</key>
 	<string>3B927803-DD3F-4049-80F6-5FCB21AE37C3</string>
