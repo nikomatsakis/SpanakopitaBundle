@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Spanakopita</string>
+	<key>ordering</key>
+	<array>
+		<string>46024919-CEEF-4E07-B9E0-794CB28C9858</string>
+		<string>B2E1067B-7490-44EE-AAE2-BAB47DF9CFBF</string>
+		<string>BFE466BD-75D0-42BD-A494-A2A8883B2D3B</string>
+		<string>853B9777-F557-4BBC-A476-DEDD6D2AE2B7</string>
+		<string>912641E9-E5D9-4E6B-AE75-8BD0DFA94BA4</string>
+	</array>
+	<key>uuid</key>
+	<string>E6D3B7FA-7159-42E7-BBDE-110D774C76D2</string>
+</dict>
+</plist>
