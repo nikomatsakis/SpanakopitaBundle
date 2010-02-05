@@ -19,6 +19,12 @@
 			<string>#escaped-char</string>
 		</dict>
 		<dict>
+			<key>match</key>
+			<string>@</string>
+			<key>name</key>
+			<string>invalid.spanakopita</string>
+		</dict>
+		<dict>
 			<key>contentName</key>
 			<string>markup.underline.spanakopita</string>
 			<key>match</key>
@@ -27,85 +33,12 @@
 			<string>meta.title.spanakopita</string>
 		</dict>
 		<dict>
-			<key>begin</key>
-			<string>{</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.spanakopita</string>
-				</dict>
-			</dict>
-			<key>contentName</key>
-			<string>markup.raw.spanakopita</string>
-			<key>end</key>
-			<string>}</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.spanakopita</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>meta.code.spanakopita</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>$base</string>
-				</dict>
-			</array>
+			<key>include</key>
+			<string>#code</string>
 		</dict>
 		<dict>
-			<key>begin</key>
-			<string>\[ *\[</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.spanakopita</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>\] *\]</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.spanakopita</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>meta.link.all.spanakopita</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>begin</key>
-					<string>@</string>
-					<key>contentName</key>
-					<string>markup.underline.link.url.spanakopita</string>
-					<key>end</key>
-					<string>(?=\])</string>
-					<key>name</key>
-					<string>meta.link.url.spanakpoita</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>include</key>
-							<string>#escaped-char</string>
-						</dict>
-					</array>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>$base</string>
-				</dict>
-			</array>
+			<key>include</key>
+			<string>#link</string>
 		</dict>
 		<dict>
 			<key>begin</key>
@@ -242,10 +175,97 @@
 	</array>
 	<key>repository</key>
 	<dict>
+		<key>code</key>
+		<dict>
+			<key>begin</key>
+			<string>{</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.spanakopita</string>
+				</dict>
+			</dict>
+			<key>contentName</key>
+			<string>markup.raw.spanakopita</string>
+			<key>end</key>
+			<string>}</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.spanakopita</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>meta.code.spanakopita</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#code</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#link</string>
+				</dict>
+			</array>
+		</dict>
 		<key>escaped-char</key>
 		<dict>
 			<key>match</key>
 			<string>\\.</string>
+		</dict>
+		<key>link</key>
+		<dict>
+			<key>begin</key>
+			<string>\[ *\[</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.spanakopita</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>\] *\]</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.spanakopita</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>meta.link.all.spanakopita</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>@</string>
+					<key>contentName</key>
+					<string>markup.underline.link.url.spanakopita</string>
+					<key>end</key>
+					<string>(?=\])</string>
+					<key>name</key>
+					<string>meta.link.url.spanakpoita</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#escaped-char</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>$base</string>
+				</dict>
+			</array>
 		</dict>
 	</dict>
 	<key>scopeName</key>
