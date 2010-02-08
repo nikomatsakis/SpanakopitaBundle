@@ -37,8 +37,52 @@
 			<string>#code</string>
 		</dict>
 		<dict>
-			<key>include</key>
-			<string>#link</string>
+			<key>begin</key>
+			<string>\[\[</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.spanakopita</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>\]\]</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.spanakopita</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>meta.link.all.spanakopita</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>@</string>
+					<key>contentName</key>
+					<string>markup.underline.link.url.spanakopita</string>
+					<key>end</key>
+					<string>(?=\])</string>
+					<key>name</key>
+					<string>meta.link.url.spanakpoita</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#escaped-char</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>$base</string>
+				</dict>
+			</array>
 		</dict>
 		<dict>
 			<key>begin</key>
@@ -205,11 +249,7 @@
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#code</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#link</string>
+					<string>#inverse</string>
 				</dict>
 			</array>
 		</dict>
@@ -218,10 +258,104 @@
 			<key>match</key>
 			<string>\\.</string>
 		</dict>
-		<key>link</key>
+		<key>inverse</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#code</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#inverse-bold</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#inverse-italics</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#inverse-underline</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#inverse-link</string>
+				</dict>
+			</array>
+		</dict>
+		<key>inverse-bold</key>
 		<dict>
 			<key>begin</key>
-			<string>\[ *\[</string>
+			<string>\\\*\*</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.spanakopita</string>
+				</dict>
+			</dict>
+			<key>contentName</key>
+			<string>markup.bold.spanakopita</string>
+			<key>end</key>
+			<string>\\\*\*</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.spanakopita</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>meta.bold.spanakopita</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>$base</string>
+				</dict>
+			</array>
+		</dict>
+		<key>inverse-italics</key>
+		<dict>
+			<key>begin</key>
+			<string>\\//</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.spanakopita</string>
+				</dict>
+			</dict>
+			<key>contentName</key>
+			<string>markup.italic.spanakopita</string>
+			<key>end</key>
+			<string>\\//</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.spanakopita</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>meta.italic.spanakopita</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>$base</string>
+				</dict>
+			</array>
+		</dict>
+		<key>inverse-link</key>
+		<dict>
+			<key>begin</key>
+			<string>\\\[\[</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -231,7 +365,7 @@
 				</dict>
 			</dict>
 			<key>end</key>
-			<string>\] *\]</string>
+			<string>\\\]\]</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
@@ -246,11 +380,11 @@
 			<array>
 				<dict>
 					<key>begin</key>
-					<string>@</string>
+					<string>\\@</string>
 					<key>contentName</key>
 					<string>markup.underline.link.url.spanakopita</string>
 					<key>end</key>
-					<string>(?=\])</string>
+					<string>(?=\\\]\])</string>
 					<key>name</key>
 					<string>meta.link.url.spanakpoita</string>
 					<key>patterns</key>
@@ -261,6 +395,40 @@
 						</dict>
 					</array>
 				</dict>
+				<dict>
+					<key>include</key>
+					<string>$base</string>
+				</dict>
+			</array>
+		</dict>
+		<key>inverse-underline</key>
+		<dict>
+			<key>begin</key>
+			<string>\\__</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.spanakopita</string>
+				</dict>
+			</dict>
+			<key>contentName</key>
+			<string>markup.underline.spanakopita</string>
+			<key>end</key>
+			<string>\\__</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.spanakopita</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>meta.underline.spanakopita</string>
+			<key>patterns</key>
+			<array>
 				<dict>
 					<key>include</key>
 					<string>$base</string>
