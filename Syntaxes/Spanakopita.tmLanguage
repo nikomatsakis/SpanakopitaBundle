@@ -263,6 +263,18 @@
 			<key>patterns</key>
 			<array>
 				<dict>
+					<key>match</key>
+					<string>\\\\</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\\\{</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\\\}</string>
+				</dict>
+				<dict>
 					<key>include</key>
 					<string>#code</string>
 				</dict>
